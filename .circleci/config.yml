@@ -1,14 +1,17 @@
+
 version: 2 
 jobs: 
   build: 
     
-    working_directory: ~/HospitalAppl
+    working_directory: ~/webapp/HospitalAppl
 
     docker: 
       - image: circleci/openjdk:8-jdk
     steps: 
 
       - checkout
+
+      - run: pwd && ls
       
 
       
