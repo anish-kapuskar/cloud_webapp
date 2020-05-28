@@ -1,0 +1,15 @@
+version: 2 
+jobs: 
+  build: 
+    
+    working_directory: ~/HospitalAppl
+
+    docker: 
+      - image: circleci/openjdk:8-jdk
+    steps: 
+
+      - checkout
+      
+
+      
+
