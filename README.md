@@ -12,3 +12,5 @@ Build and Deploy instructions for web application:
 Build the application using maven.
 To deploy the application, configure the tomcat server, and start the server.
 Deploy the application on the tomcat localhost:8080, with the appropriate path.
+
+Review change
