@@ -1,24 +1,18 @@
-
-version: 2 
-jobs: 
-  build: 
+version: 2
+jobs:
+  build:
     
     working_directory: ~/webapp
 
-    docker: 
+    docker:
       - image: circleci/openjdk:8-jdk
 
-    steps: 
+    steps:
 
       - checkout
-
-      - run:
-          name: Build War file
-          command:  |
-	    pwd
-            ls -al
-            mvn clean install
-            mvn -Dtest=testmsgbuilder test  
-
       
+      - run:mvn -Dtest=testmsgbuilder test
+
+
+
 
