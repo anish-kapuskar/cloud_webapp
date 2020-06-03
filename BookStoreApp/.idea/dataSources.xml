@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="7fb1de11-bc4d-45e2-9819-2792c942311f">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+/home/anishkapuskar/NetBeansProjects/BookStoreApp/src/main/resources/hibernate.cfg.xml</remarks>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/books</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="datasource" uuid="1149abf6-8fcc-466f-abf7-b126f1a53032">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>spring
+
+/home/anishkapuskar/NetBeansProjects/BookStoreApp/src/main/resources/user-beans.xml</remarks>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/myusers</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="datasource" uuid="f5fd640b-361a-4733-8aee-b36d6fa49ab4">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>spring
+
+/home/anishkapuskar/NetBeansProjects/BookStoreApp/src/main/resources/user-beans.xml</remarks>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/myusers</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="datasource" uuid="d788765e-6dd5-499e-a16f-e1010bb8dd6e">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>spring
+
+/home/anishkapuskar/NetBeansProjects/BookStoreApp/src/main/webapp/WEB-INF/user-beans.xml</remarks>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/myusers</jdbc-url>
+    </data-source>
+  </component>
+</project>

@@ -3,16 +3,22 @@ version: 2
 jobs: 
   build: 
     
-    working_directory: ~/webapp/HospitalAppl
+    working_directory: ~/webapp
 
     docker: 
       - image: circleci/openjdk:8-jdk
+
     steps: 
 
       - checkout
 
-      - run: pwd && ls
-      
+      - run:
+          name: Build War file
+          command:  |
+	    pwd
+            ls -al
+            mvn clean install
+            mvn -Dtest=testmsgbuilder test  
 
       
 
