@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+
+    <!--
+    Most controllers will use the ControllerClassNameHandlerMapping above, but
+    for the index controller we are using ParameterizableViewController, so we must
+    define an explicit mapping for it.
+    -->
+     <import resource="classpath:user-beans.xml" />
+    <context:component-scan base-package="com.me" />
+    <context:annotation-config />
+    <mvc:interceptors>
+        <bean class="com.me.interceptor.SQLInjectionInterceptor" />
+    </mvc:interceptors>
+    
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="index.htm">indexController</prop>
+           <!--     <prop key="addBook.htm">addBookController</prop>
+                <prop key="browseBook.htm">browseBookController</prop>
+                <prop key="book.htm">bookController</prop>
+                 <prop key="history.htm">historyController</prop>
+                  <prop key="addHistory.htm">addHistoryController</prop>
+                   <prop key="browseHistory.htm">browseHistoryController</prop>
+                        <prop key="bill.htm">billController</prop>
+                  <prop key="addBill.htm">addBillController</prop>
+                   <prop key="browseBill.htm">browseBillController</prop>
+
+                    
+
+                              <prop key="login2.htm">LoginController2</prop>
+                               <prop key="loginProcess2.htm">LoginController2</prop>
+                                <prop key="login3.htm">LoginController3</prop>
+                               <prop key="loginProcess3.htm">LoginController3</prop>
+                                <prop key="register2.htm">RegistrationController2</prop>
+                         <prop key="registerProcess2.htm">RegistrationController2</prop>  
+                          <prop key="register3.htm">RegistrationController3</prop>
+                         <prop key="registerProcess3.htm">RegistrationController3</prop>  
+                         <prop key="delete.htm">DeleteBookController</prop>
+
+
+                  -->
+
+                <prop key="go.htm">goController</prop>
+                <prop key="register.htm">RegistrationController</prop>
+                <prop key="registerProcess.htm">RegistrationController</prop>
+                <prop key="login.htm">LoginController</prop>
+                <prop key="loginProcess.htm">LoginController</prop>
+
+                <prop key="update.htm">RegistrationController</prop>
+                <prop key="updateProcess.htm">RegistrationController</prop>
+
+                <prop key="book.htm">BookController</prop>
+                <prop key="addBooks.htm">AddBooksController</prop>
+                <prop key="buyBooks.htm">BuyBooksController</prop>
+                <prop key="browseBook.htm">browseBookController</prop>
+
+                <prop key="delete.htm">DeleteBookController</prop>
+                <prop key="deleteCart.htm">DeleteCartController</prop>
+                <prop key="updateBook.htm">UpdateBookController</prop>
+                <prop key="cart.htm">CartController</prop>
+                <prop key="dispCart.htm">DisplayCartController</prop>
+                <prop key="logout.htm">LogoutController</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/"
+          p:suffix=".jsp" />
+
+
+    <bean name="indexController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="Welcome" />
+
+<!--
+    <bean name="bookController"
+          class="com.me.controllers.BookController"
+          />
+    <bean name="addBookController"
+          class="com.me.controllers.AddBooksController          />
+
+       <bean name="historyController"
+          class="com.me.controllers.HistoryController"
+          />
+          <bean name="browseHistoryController"
+          class="com.me.controllers.BrowseHistoryController"
+          />
+             <bean name="addHistoryController"
+          class="com.me.controllers.AddHistoryController"
+          />
+                 <bean name="billController"
+          class="com.me.controllers.BillController"
+          />
+          <bean name="browseBillController"
+          class="com.me.controllers.BrowseBillController"
+          />
+             <bean name="addBillController"
+          class="com.me.controllers.AddBillController"
+          />
+
+                                    <bean name="LoginController2"
+          class="com.me.controllers.LoginController2"
+          />
+
+                                         <bean name="LoginController3"
+          class="com.me.controllers.LoginController3"
+          />
+                                                <bean name="RegistrationController2"
+          class="com.me.controllers.RegistrationController2"
+          />
+                                                 <bean name="RegistrationController3"
+          class="com.me.controllers.RegistrationController3"
+          />
+
+
+             <bean name="LogoutController"
+          class="com.me.controllers.LogoutController"
+    />
+
+          -->
+
+    <bean name="DeleteBookController"
+          class="com.me.controllers.DeleteBookController"
+    />
+    <bean name="DeleteCartController"
+          class="com.me.controllers.DeleteCartController"
+    />
+
+               <bean name="goController"
+          class="com.me.controllers.GoController"
+          />
+                 
+                   <bean name="RegistrationController"
+          class="com.me.controllers.RegistrationController"
+          />
+                   
+                           <bean name="LoginController"
+          class="com.me.controllers.LoginController"
+          />
+    <bean name="BookController"
+          class="com.me.controllers.BookController"
+    />
+    <bean name="AddBooksController"
+          class="com.me.controllers.AddBooksController"
+    />
+    <bean name="BuyBooksController"
+          class="com.me.controllers.BuyBooksController"
+    />
+    <bean name="browseBookController"
+          class="com.me.controllers.BrowseBookController"
+    />
+
+    <bean name="UpdateBookController"
+          class="com.me.controllers.UpdateBookController"
+    />
+    <bean name="CartController"
+          class="com.me.controllers.CartController"
+    />
+    <bean name="DisplayCartController"
+          class="com.me.controllers.DisplayCartController"
+    />
+    <bean name="LogoutController"
+          class="com.me.controllers.LogoutController"
+    />
+
+</beans>
