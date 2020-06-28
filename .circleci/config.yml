@@ -1,17 +1,24 @@
 version: 2
 jobs:
   build:
-    
-    working_directory: ~/webapp
-
     docker:
-      - image: circleci/openjdk:8-jdk
+      - image: circleci/openjdk:11-jdk
 
     steps:
 
       - checkout
       
-      - run:mvn -Dtest=testmsgbuilder test
+      - run:
+          name: Build WAR
+          command: |
+            ls -al
+            cd BookStoreApp/
+            ls -al
+            mvn clean install
+            cd target
+            ls -al
+            cd ../../
+            ls -al
 
 
 
