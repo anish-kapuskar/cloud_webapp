@@ -11,10 +11,18 @@ import com.me.bean.Book;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
 
 import java.util.List;
+
+import com.timgroup.statsd.StatsDClient;
+import org.apache.log4j.Logger;
+
+import org.apache.commons.lang3.time.DateUtils;
+import org.apache.commons.lang3.time.StopWatch;
 
 /**
  *
@@ -22,12 +30,19 @@ import java.util.List;
  */
 public class CartController extends AbstractController {
 
+    private static final Logger logger=Logger.getLogger(CartController.class);
+    @Autowired
+    private StatsDClient statsDclient;
+
     public CartController() {
     }
 
     protected ModelAndView handleRequestInternal(
             HttpServletRequest request,
             HttpServletResponse response) throws Exception {
+
+        StopWatch stopwatch = StopWatch.createStarted();
+
         ModelAndView mv = null;
 
         Cart cart = new Cart();
@@ -45,14 +60,23 @@ public class CartController extends AbstractController {
 
         if(option ==null || option.isEmpty())
         {
+            statsDclient.incrementCounter("viewListing");
+            logger.info("viewing listing");
             mv= new ModelAndView("Result2");
+            stopwatch.stop();
+            statsDclient.recordExecutionTime("viewListing", stopwatch.getTime());
         }
         else if(option.equalsIgnoreCase("cart"))
         {
+            statsDclient.incrementCounter("viewBook");
+            logger.info("viewing book");
+
             int id = Integer.parseInt(request.getParameter("id"));
             Book cartBook = bookdao.getBookById(id);
             mv= new ModelAndView("cartBook","message", cartBook);
             mv.addObject("uname", uname);
+            stopwatch.stop();
+            statsDclient.recordExecutionTime("viewBook", stopwatch.getTime());
         }
         else if(option.equalsIgnoreCase("cartBook")){
             String isbn=request.getParameter("isbn");
@@ -78,12 +102,16 @@ public class CartController extends AbstractController {
              mv=new ModelAndView("cartAdded","message","Book Added to Cart!");
             mv.addObject("uname", uname);
             logger.info("Book has been added");
+            stopwatch.stop();
+            statsDclient.recordExecutionTime("bookAddedToCart", stopwatch.getTime());
             return mv;
 
         }
         else if(option.equalsIgnoreCase("viewCart")){
             mv=new ModelAndView("viewCart");
             mv.addObject("uname", uname);
+            stopwatch.stop();
+            statsDclient.recordExecutionTime("viewCart", stopwatch.getTime());
         }
 
 

@@ -5,19 +5,42 @@
  */
 package com.me.controllers;
 
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.DeleteObjectRequest;
 import com.me.DAO.BookDAO;
 import com.me.bean.Book;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
+
+import com.timgroup.statsd.StatsDClient;
+import org.apache.log4j.Logger;
+import org.apache.commons.lang3.time.DateUtils;
+import org.apache.commons.lang3.time.StopWatch;
 
 /**
  *
  * @author Lord Aegon
  */
 public class UpdateBookController extends AbstractController {
+
+    private static final Logger logger=Logger.getLogger(BrowseBookController.class);
+    @Autowired
+    private StatsDClient statsDclient;
+
+    @Autowired
+    private AmazonS3 s3client;
+
+    @Value("http://webapp.anish.kapuskar.s3-website-us-east-1.amazonaws.com")
+    private String endpointUrl;
+
+    @Value("webapp.anish.kapuskar")
+    private String bucketName;
     
     public UpdateBookController() {
     }
@@ -28,8 +51,12 @@ public class UpdateBookController extends AbstractController {
             ModelAndView mv = null;
                     BookDAO bookdao = new BookDAO();
         String option = request.getParameter("option");
+        String imagename = request.getParameter("imagename");
+        deleteFile(imagename);
         if(option ==null || option.isEmpty()) 
         {
+            statsDclient.incrementCounter("viewUploads");
+            logger.info("viewing uploads");
             mv= new ModelAndView("Result");
         }
         else if(option.equalsIgnoreCase("update"))
@@ -48,8 +75,9 @@ public class UpdateBookController extends AbstractController {
             double price=Double.parseDouble(request.getParameter("price"));
             String seller=request.getParameter("seller");
             String time =request.getParameter("time");
+            String image = request.getParameter("image");
       
-      int result=bookdao.updateBook(id,isbn, title, authors, date, quantity, price, seller,time);
+      int result=bookdao.updateBook(id,isbn, title, authors, date, quantity, price, seller,time,image);
       
       if(result==1){
       String msg= "Book with id" + id + "has been updated successfully";
@@ -62,6 +90,12 @@ public class UpdateBookController extends AbstractController {
            }
          return mv;
         }
+    public void deleteFile(final String fileName) {
+
+        final DeleteObjectRequest deleteObjectRequest = new DeleteObjectRequest(bucketName, fileName);
+        s3client.deleteObject(deleteObjectRequest);
+
+    }
 } 
         
      

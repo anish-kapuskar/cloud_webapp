@@ -184,10 +184,13 @@ public List<Book> searchBookbyAll(String keyword){
          return null;
     }
         
-        public int updateBook(int id, String isbn, String title, String authors, String date, int quantity, double price, String seller,String time)
+        public int updateBook(int id, String isbn, String title, String authors, String date, int quantity, double price, String seller,String time, String image)
         {
         int result =0;
         try{
+
+            String fileUrl = "https://s3.amazonaws.com" + "/" + "webapp.anish.kapuskar" + "/" + image;
+
             getSession().beginTransaction();
             Query q = getSession().createQuery("from Book where id= :id");
              q.setInteger("id", id);
@@ -200,6 +203,7 @@ public List<Book> searchBookbyAll(String keyword){
               bookUpdate.setPrice(price);
             bookUpdate.setSeller(seller);
             bookUpdate.setTime(time);
+            bookUpdate.setImage(fileUrl);
 
               
                getSession().save(bookUpdate);

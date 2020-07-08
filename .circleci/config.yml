@@ -51,6 +51,8 @@ jobs:
             cp ../codedeploy/*.sh .
             echo "Copying all .yml files from ../ directory to the codedeploy_artifact"
             cp ../*.yml .
+            echo "Copying amazon-cloudwatch-agent.json from ../ directory to the codedeploy_artifact"
+            cp ../amazon-cloudwatch-agent.json .
 
             echo "Zipping all files in the codedeploy_artifact directory"
             zip -r BookStoreApp-webapp-${CIRCLE_BUILD_NUM}.zip .

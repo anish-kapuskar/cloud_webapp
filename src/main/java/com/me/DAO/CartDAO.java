@@ -17,7 +17,7 @@ import org.hibernate.cfg.Configuration;
  */
 public class CartDAO {
     private Session session=null;
-    private static final SessionFactory sf = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+    private static final SessionFactory sf = new Configuration().configure("hibernate2.cfg.xml").buildSessionFactory();
     private Session getSession(){
         if(session==null || !session.isOpen()){
             session = sf.openSession();

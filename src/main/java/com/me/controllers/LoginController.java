@@ -22,8 +22,19 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.timgroup.statsd.StatsDClient;
+import org.apache.commons.lang3.time.DateUtils;
+import org.apache.commons.lang3.time.StopWatch;
+import org.apache.log4j.Logger;
+
+
 @Controller
 public class LoginController {
+
+  @Autowired
+  private StatsDClient statsDclient;
+
   @Autowired
   UserService userService;
   @RequestMapping(value = "login.htm", method = RequestMethod.GET)
@@ -35,6 +46,8 @@ public class LoginController {
   @RequestMapping(value = "loginProcess.htm", method = RequestMethod.POST)
   public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response,
                                    @ModelAttribute("login") Login login) {
+    StopWatch stopwatch = StopWatch.createStarted();
+
     ModelAndView mav = null;
     User user = userService.validateUser(login);
     if (null != user) {
@@ -42,7 +55,8 @@ public class LoginController {
       mav.addObject("firstname", user.getFirstname());
       mav.addObject("lastname", user.getLastname());
       mav.addObject("email", user.getEmail());
-
+      stopwatch.stop();
+      statsDclient.recordExecutionTime("timeToLogin", stopwatch.getTime());
     } else {
       mav = new ModelAndView("login");
       mav.addObject("message", "Username or Password is wrong!!");

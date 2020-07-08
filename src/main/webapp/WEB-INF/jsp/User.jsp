@@ -18,7 +18,6 @@
 <body bgcolor="skyblue">
 <h1>User Portal</h1>
 <div style="border: 1px solid; padding:30px; opacity: 0.8;background-color: white;">
-    <h1>${message}</h1>
     <form action="login.htm" method="get">
 
         <input type="submit" name="option" value="Login" style="background-color: #4CAF50; border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;"/>

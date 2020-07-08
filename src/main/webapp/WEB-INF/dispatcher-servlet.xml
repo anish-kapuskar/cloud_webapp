@@ -76,6 +76,11 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd http://www.springfr
                 <prop key="cart.htm">CartController</prop>
                 <prop key="dispCart.htm">DisplayCartController</prop>
                 <prop key="logout.htm">LogoutController</prop>
+                <prop key="s3controller.htm">s3controller</prop>
+                <prop key="uploads3controller.htm">uploads3controller</prop>
+                <prop key="deleteimgcontroller.htm">deleteimgcontroller</prop>
+
+
             </props>
         </property>
     </bean>
@@ -137,6 +142,11 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd http://www.springfr
 
           -->
 
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="5000000"/>
+    </bean>
+
     <bean name="DeleteBookController"
           class="com.me.controllers.DeleteBookController"
     />
@@ -180,5 +190,16 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd http://www.springfr
     <bean name="LogoutController"
           class="com.me.controllers.LogoutController"
     />
+    <bean name="s3controller"
+          class="com.me.controllers.s3controller"
+    />
+    <bean name="uploads3controller"
+          class="com.me.controllers.uploads3controller"
+    />
+    <bean name="deleteimgcontroller"
+          class="com.me.controllers.deleteimgcontroller"
+    />
+
+
 
 </beans>

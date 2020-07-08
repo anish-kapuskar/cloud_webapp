@@ -31,6 +31,7 @@
             
             <table border="1">
                 <tr>
+                    <th>Book Cover</th>
                 <th>ISBN </th>
                 <th>Title </th>
                 <th>Authors </th>
@@ -43,6 +44,15 @@
                 </tr>
                 <c:forEach var="book" items="${book}">
                         <tr>
+                            <td><img src="${book.getImage()}">
+                                <form method="POST" action="deleteimgcontroller.htm">
+
+                                    <input type="hidden" name="imagename" value="${book.getImagename()}">
+                                    <input type="hidden" name="image" value="${book.getImage()}">
+                                    Delete Image:<input type="submit" name="Delete Image"></form></td>
+
+
+
                         <td><c:out value=" ${book.getIsbn()} " /></td>
                         <td><c:out value=" ${book.getTitle()} " /></td>
                         <td><c:out value=" ${book.getAuthors()} " /></td>
@@ -52,8 +62,9 @@
                             <td><c:out value=" ${book.getSeller()} " /></td>
                             <td><c:out value=" ${book.getTime()} " /></td>
 
+
                         <td>
-                            <a href="delete.htm?option=delete&id=${book.getId()}">Delete Book</a> &nbsp; <a href="updateBook.htm?option=update&id=${book.getId()}">Update Book</a>
+                            <a href="delete.htm?option=delete&id=${book.getId()}&image=${book.getImagename()}">Delete Book</a> &nbsp; <a href="updateBook.htm?option=update&id=${book.getId()}&imagename=${book.getImagename()}&image=${book.getImage()}">Update Book</a>
                         </td>
                         </tr>
                 </c:forEach> 

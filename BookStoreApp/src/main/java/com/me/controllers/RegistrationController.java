@@ -21,8 +21,18 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.timgroup.statsd.StatsDClient;
+import org.apache.commons.lang3.time.DateUtils;
+import org.apache.commons.lang3.time.StopWatch;
+import org.apache.log4j.Logger;
+
 @Controller
 public class RegistrationController {
+
+  @Autowired
+  private StatsDClient statsDclient;
+
   @Autowired
   public UserService userService;
 
@@ -35,6 +45,9 @@ public class RegistrationController {
   @RequestMapping(value = "registerProcess.htm", method = RequestMethod.POST)
   public ModelAndView addUser(HttpServletRequest request, HttpServletResponse response,
                               @ModelAttribute("user") User user) {
+
+    StopWatch stopwatch = StopWatch.createStarted();
+
     userService.register(user);
 
     ModelAndView mav2 = new ModelAndView("welcome2");
@@ -42,6 +55,9 @@ public class RegistrationController {
     mav2.addObject("lastname", user.getLastname());
     mav2.addObject("email", user.getEmail());
     mav2.addObject("user", user);
+
+    stopwatch.stop();
+    statsDclient.recordExecutionTime("timetoRegister", stopwatch.getTime());
 
     return mav2;
 

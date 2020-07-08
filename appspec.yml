@@ -1,22 +1,22 @@
 version: 0.0
 os: linux
 files:             
-  - source: ./BookStoreApp/target/BookStoreApp-1.0-SNAPSHOT.war
+  - source: ./
     destination: /var/lib/tomcat9/webapps
 hooks:
   ApplicationStop:
     - location: ./applicationStop.sh
       timeout: 180
-      runas: ubuntu
+      runas: root
   BeforeInstall:
     - location: ./beforeInstall.sh
       timeout: 180
-      runas: ubuntu
+      runas: root
   AfterInstall:
    - location: ./afterInstall.sh
      timeout: 180
-     runas: ubuntu
+     runas: root
   ApplicationStart:
     - location: ./applicationStart.sh
       timeout: 180
-      runas: ubuntu
+      runas: root	

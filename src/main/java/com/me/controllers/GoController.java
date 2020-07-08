@@ -10,16 +10,11 @@ import org.springframework.web.servlet.mvc.AbstractController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.springframework.core.env.Environment;
-import org.springframework.stereotype.Component;
-import org.springframework.beans.factory.annotation.Autowired;
-
 
 /**
  *
  * @author anish
  */
-
 public class GoController extends AbstractController {
 
     public GoController() {
@@ -29,9 +24,6 @@ public class GoController extends AbstractController {
             HttpServletRequest request,
             HttpServletResponse response) throws Exception {
         ModelAndView mv = null;
-
-
-
         String option = request.getParameter("option");
         if(option !=null && option.equalsIgnoreCase("Go"))
         {

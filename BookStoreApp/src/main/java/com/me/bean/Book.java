@@ -19,6 +19,8 @@ public class Book {
     private double price;
     private String seller;
     private String time;
+    private String image;
+    private String imagename;
 
     public Book(){
     }
@@ -94,5 +96,21 @@ public class Book {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getImagename() {
+        return imagename;
+    }
+
+    public void setImagename(String imagename) {
+        this.imagename = imagename;
     }
 }

@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body style="background-image: url('https://wallpaperplay.com/walls/full/1/2/9/13978.jpg')">
+    <body >
             <div style="border: 1px solid; padding:30px;opacity: 0.8;background-color: white;">
                 <h2>Update/Edit Book Upload</h2>
         <form action="updateBook.htm" method="post">
@@ -23,6 +23,7 @@
             Quantity<input type="text" name="quantity" value="${message.getQuantity()}"><br><br>
             Price<input type="text" name="price" value="${message.getPrice()}"><br><br>
             Seller<input type="text" name="seller" value="${message.getSeller()}"><br><br>
+            Image<input type="file" name="image"><br><br>
             <input type="hidden" name="time" id ='time' value="">
             <script>
                 var t = new Date();
@@ -32,6 +33,9 @@
             <input type="hidden" name="option" value="updateBook">
             <input type="submit" name="submit" value="Update Book">
         </form>
+                <form action="s3controller.htm" method="post">
+                    <input type="submit" name="option" value="Add image"/><br>
+                </form>
             </div>
     </body>
 </html>

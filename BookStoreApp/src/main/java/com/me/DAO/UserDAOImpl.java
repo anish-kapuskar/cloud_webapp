@@ -13,7 +13,6 @@ package com.me.DAO;
 import com.me.model.Login;
 import com.me.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -26,7 +25,6 @@ import java.util.List;
 public class UserDAOImpl implements UserDAO {
   @Autowired
   DataSource datasource;
-
   @Autowired
   JdbcTemplate jdbcTemplate;
 
@@ -38,6 +36,7 @@ public class UserDAOImpl implements UserDAO {
   }
 
   public void register(User user) {
+
     String sqlcreate = "CREATE TABLE IF NOT EXISTS users\n" +
             "(\n" +
             "email varchar(255),\n" +
@@ -46,6 +45,7 @@ public class UserDAOImpl implements UserDAO {
             "lastname varchar(255)\n" +
             ");";
     jdbcTemplate.update(sqlcreate);
+
     String sql = "select * from users where email='" + user.getEmail()
             + "'";
     List<User> users = jdbcTemplate.query(sql, new UserMapper());

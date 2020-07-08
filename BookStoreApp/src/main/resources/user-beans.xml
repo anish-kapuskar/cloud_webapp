@@ -8,17 +8,19 @@ and open the template in the editor.
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     <context:component-scan base-package="com.me" />
     <context:annotation-config />
+
+ <context:property-placeholder location="classpath:application.properties" />
+
+
     <bean id="userService" class="com.me.service.UserServiceImpl" />
     <bean id="userDao" class="com.me.DAO.UserDAOImpl" />
-
-    <context:property-placeholder location="classpath:db.properties" />
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="datasource" />
     </bean>
     <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="${db.url}" />
-        <property name="username" value="${db.username}" />
-        <property name="password" value="${db.password}" />
+        <property name="url" value="jdbc:mysql://csye6225-su2020.cvshnzxutmoj.us-east-1.rds.amazonaws.com:3306/csye6225" />
+        <property name="username" value="csye6225su2020" />
+        <property name="password" value="anishk78995" />
     </bean>
 </beans>

@@ -26,7 +26,7 @@
                 <h5 class="card-title">Welcome to the Book Store!</h5>
                 <p class="card-text">Login / Register<br></p><br><br>
 
-                <form action="go.htm" method="post">
+             <form action="go.htm" method="post">
 
                     <input type="submit" name="option" value="Go" style="background-color: #4CAF50; border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;"/>
                 </form>

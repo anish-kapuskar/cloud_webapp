@@ -38,6 +38,7 @@
 
         <table border="1">
             <tr>
+                <th>Book Cover</th>
                 <th>ISBN </th>
                 <th>Title </th>
                 <th>Authors </th>
@@ -50,6 +51,7 @@
             </tr>
             <c:forEach var="book" items="${book}">
                 <tr>
+                    <td><img src="${book.getImage()}"></td>
                     <td><c:out value=" ${book.getIsbn()} " /></td>
                     <td><c:out value=" ${book.getTitle()} " /></td>
                     <td><c:out value=" ${book.getAuthors()} " /></td>
@@ -59,7 +61,9 @@
                     <td><c:out value=" ${book.getSeller()} " /></td>
                     <td><c:out value=" ${book.getTime()} " /></td>
 
+
                     <td>
+
                         <a href="cart.htm?option=cart&id=${book.getId()}&uname=${uname}">Add to Cart</a>
                     </td>
                 </tr>

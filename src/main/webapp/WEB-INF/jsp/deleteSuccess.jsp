@@ -11,8 +11,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body style="background-image: url('https://wallpaperplay.com/walls/full/1/2/9/13978.jpg')">
-       <h1>${message}</h1>
-        <a href="/BookStoreApp_war">Go back</a>
+    <body>
+     <h1>${message}</h1>
+   <!--    <form method="POST" action="uploads3controller.htm">
+           <input type="hidden" name="image" value="${image}">
+           <input type="submit" name="Delete Book">
+       </form> -->
+        <a href="/BookStoreApp_war">Log Out</a>
     </body>
 </html>
