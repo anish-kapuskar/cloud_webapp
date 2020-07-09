@@ -68,6 +68,7 @@ public class BrowseBookController extends AbstractController {
 
             stopwatch.stop();
             statsDclient.recordExecutionTime("viewUploads", stopwatch.getTime());
+            statsDclient.recordExecutionTime("getImageFromS3", stopwatch.getTime());
 
         } else if(searchKey.equals("all")){
                 
@@ -82,6 +83,7 @@ public class BrowseBookController extends AbstractController {
 
             stopwatch.stop();
             statsDclient.recordExecutionTime("viewListing", stopwatch.getTime());
+            statsDclient.recordExecutionTime("getImageFromS3", stopwatch.getTime());
                 
             }
         /**

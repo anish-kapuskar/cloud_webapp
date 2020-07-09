@@ -37,14 +37,48 @@ public class UserDAOImpl implements UserDAO {
 
   public void register(User user) {
 
-    String sqlcreate = "CREATE TABLE IF NOT EXISTS users\n" +
+    String sqlcreate1 = "CREATE TABLE IF NOT EXISTS users\n" +
             "(\n" +
             "email varchar(255),\n" +
             "password varchar(255),\n" +
             "firstname varchar(255),\n" +
             "lastname varchar(255)\n" +
             ");";
-    jdbcTemplate.update(sqlcreate);
+
+    jdbcTemplate.update(sqlcreate1);
+
+    String sqlcreate2=  "CREATE TABLE IF NOT EXISTS Book " +
+            "(\n" +
+            "    id int(11) NOT NULL AUTO_INCREMENT,\n" +
+            "    isbn varchar(255),\n" +
+            "    title varchar(255),\n" +
+            "    authors varchar(255),\n" +
+            "    date varchar(255),\n" +
+            "    quantity int(11),\n" +
+            "    price double,\n" +
+            "    seller varchar(255),\n" +
+            "    time varchar(255),\n" +
+            "    PRIMARY KEY (id)\n" +
+            ");";
+
+            jdbcTemplate.update(sqlcreate2);
+
+    String sqlcreate3=  "CREATE TABLE IF NOT EXISTS Cart (\n" +
+            "    id int(11) NOT NULL AUTO_INCREMENT,\n" +
+            "    isbn varchar(255),\n" +
+            "    title varchar(255),\n" +
+            "    authors varchar(255),\n" +
+            "    date varchar(255),\n" +
+            "    quantity int(11),\n" +
+            "    price int(11),\n" +
+            "    buyer varchar(255),\n" +
+            "    time varchar(255),\n" +
+            "    PRIMARY KEY (id)\n" +
+            ");\n";
+
+
+    jdbcTemplate.update(sqlcreate3);
+
 
     String sql = "select * from users where email='" + user.getEmail()
             + "'";

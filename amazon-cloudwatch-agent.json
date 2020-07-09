@@ -10,7 +10,12 @@
                     {
                         "file_path": "/var/lib/tomcat9/logs/localhost.2020-07-*.log",
                         "log_group_name": "csye6225",
-                        "log_stream_name": "webapp"
+                        "log_stream_name": "webapp_catalina_logs"
+                    },
+                    {
+                        "file_path": "/var/lib/tomcat9/logs/catalina.out",
+                        "log_group_name": "csye6225",
+                        "log_stream_name": "webapp_server_logs"
                     }
                 ]
             }

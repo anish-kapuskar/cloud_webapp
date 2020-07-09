@@ -81,7 +81,7 @@ public class AddBooksController extends AbstractController{
 
      stopwatch.stop();
      statsDclient.recordExecutionTime("addBookToDb", stopwatch.getTime());
-
+     statsDclient.recordExecutionTime("addImageToS3Bucket", stopwatch.getTime());
        return mv;
    }
 
