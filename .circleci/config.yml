@@ -44,6 +44,8 @@ jobs:
             cd codedeploy_artifact
             echo "Copying the jar file from ../BookStoreApp/target/BookStoreApp-1.0-SNAPSHOT.war to the codedeploy_artifact"
             cp ../BookStoreApp/target/BookStoreApp-1.0-SNAPSHOT.war .
+            chmod -R 777 BookStoreApp-1.0-SNAPSHOT.war
+            mv BookStoreApp-1.0-SNAPSHOT.war ROOT.war
             echo "Copying the properties from /BookStoreApp/src/main/resources to the codedeploy_artifact"
             cp ../BookStoreApp/src/main/resources/*.* .
 
