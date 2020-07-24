@@ -79,6 +79,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd http://www.springfr
                 <prop key="s3controller.htm">s3controller</prop>
                 <prop key="uploads3controller.htm">uploads3controller</prop>
                 <prop key="deleteimgcontroller.htm">deleteimgcontroller</prop>
+                <prop key="forgot.htm">forgotController</prop>
 
 
             </props>
@@ -198,6 +199,9 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd http://www.springfr
     />
     <bean name="deleteimgcontroller"
           class="com.me.controllers.deleteimgcontroller"
+    />
+    <bean name="forgotController"
+          class="com.me.controllers.forgotController"
     />
 
 
