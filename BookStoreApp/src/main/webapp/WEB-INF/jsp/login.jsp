@@ -50,8 +50,14 @@
 
         </table>
     </form:form>
-    <br><br><br>
-    <a href="/BookStoreApp_war">Home</a>
+    <br><br>
+
+<form id="forgotForm" action="go.htm" method="GET">
+    <input type="submit" name="option" value="Forgot my password">
+</form>
+
+    <br>
+    <a href="/">Home</a>
 </div>
 <table align="center">
     <tr>

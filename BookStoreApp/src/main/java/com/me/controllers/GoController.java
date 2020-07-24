@@ -30,6 +30,11 @@ public class GoController extends AbstractController {
             mv= new ModelAndView("User");
         }
 
+        else if (option !=null && option.equalsIgnoreCase("Forgot my password"))
+        {
+            mv= new ModelAndView("forgotPassword");
+        }
+
         else
         {
             mv = new ModelAndView("Welcome");
