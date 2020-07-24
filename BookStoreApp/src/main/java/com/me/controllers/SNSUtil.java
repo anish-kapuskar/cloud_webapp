@@ -15,7 +15,7 @@ import javax.annotation.PostConstruct;
 @Component
 public class SNSUtil {
 
-    @Value("arn:aws:sns:us-east-1:569196275084:csye62250-sns-topic")
+    @Value("arn:aws:sns:us-east-1:569196275084:password_reset")
     private String snsTopicARN;
 
     @Value("AKIAYJBV54WGJAVEDS7Z")

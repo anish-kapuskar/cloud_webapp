@@ -1,8 +1,8 @@
 package com.me.controllers;
 
 
-import com.me.controllers.SNSUtil;
 
+import com.me.controllers.SNSUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
