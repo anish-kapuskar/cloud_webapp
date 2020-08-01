@@ -21,6 +21,10 @@ public class Book {
     private String time;
     private String image;
     private String imagename;
+    private String image2;
+    private String imagename2;
+    private String image3;
+    private String imagename3;
 
     public Book(){
     }
@@ -112,5 +116,37 @@ public class Book {
 
     public void setImagename(String imagename) {
         this.imagename = imagename;
+    }
+
+    public String getImage2() {
+        return image2;
+    }
+
+    public void setImage2(String image2) {
+        this.image2 = image2;
+    }
+
+    public String getImagename2() {
+        return imagename2;
+    }
+
+    public void setImagename2(String imagename2) {
+        this.imagename2 = imagename2;
+    }
+
+    public String getImage3() {
+        return image3;
+    }
+
+    public void setImage3(String image3) {
+        this.image3 = image3;
+    }
+
+    public String getImagename3() {
+        return imagename3;
+    }
+
+    public void setImagename3(String imagename3) {
+        this.imagename3 = imagename3;
     }
 }

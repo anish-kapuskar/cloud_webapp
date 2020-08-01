@@ -60,8 +60,12 @@ public class AddBooksController extends AbstractController{
       String seller = req.getParameter("seller");
       String time = req.getParameter("time");
       String file = req.getParameter("file");
+     String file2 = req.getParameter("file2");
+     String file3 = req.getParameter("file3");
 
      String fileUrl = endpointUrl + "/" + bucketName + "/" + file;
+     String fileUrl2 = endpointUrl + "/" + bucketName + "/" + file2;
+     String fileUrl3 = endpointUrl + "/" + bucketName + "/" + file3;
       
       book.setIsbn(isbn);
       book.setTitle(title);
@@ -73,6 +77,10 @@ public class AddBooksController extends AbstractController{
       book.setTime(time);
       book.setImage(fileUrl);
       book.setImagename(file);
+     book.setImage2(fileUrl2);
+     book.setImagename2(file2);
+     book.setImage3(fileUrl3);
+     book.setImagename3(file3);
 
       BookDAO bookDao = new BookDAO();
       bookDao.addBook(book);

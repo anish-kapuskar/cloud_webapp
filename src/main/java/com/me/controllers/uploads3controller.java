@@ -31,11 +31,10 @@ public class uploads3controller {
 
     @RequestMapping(value = "uploads3controller.htm", method = RequestMethod.POST)
     public String uploadFile(@RequestParam("file") MultipartFile multipartFile,
-                             HttpServletRequest request, HttpServletResponse response)
-    {
+                             HttpServletRequest request, HttpServletResponse response) throws IOException {
         String fileUrl = "";
         String  status = null;
-        try {
+
 
             //converting multipart file to file
             File file = convertMultiPartToFile(multipartFile);
@@ -49,11 +48,7 @@ public class uploads3controller {
 
             file.delete();
 
-        } catch (Exception e) {
-
-            return "UploadController().uploadFile().Exception : " + e.getMessage();
-
-        }
+        
 
         return "SellBooks";
     }

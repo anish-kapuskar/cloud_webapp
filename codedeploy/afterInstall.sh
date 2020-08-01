@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+sudo su
 
 sudo chmod -R 777 /var/lib/tomcat9/logs
 

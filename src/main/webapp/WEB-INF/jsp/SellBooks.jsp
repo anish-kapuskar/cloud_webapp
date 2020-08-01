@@ -43,6 +43,14 @@
 
          <td><input type='file'  name='file'> </td>
      </tr>
+     <tr>
+
+         <td><input type='file'  name='file2'> </td>
+     </tr>
+     <tr>
+
+         <td><input type='file'  name='file3'> </td>
+     </tr>
     <tr>
 
         <td><input type='hidden'  name='seller' value='${uname}'  required> </td>

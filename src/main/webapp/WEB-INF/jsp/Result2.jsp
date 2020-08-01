@@ -39,6 +39,8 @@
         <table border="1">
             <tr>
                 <th>Book Cover</th>
+                <th></th>
+                <th></th>
                 <th>ISBN </th>
                 <th>Title </th>
                 <th>Authors </th>
@@ -52,6 +54,8 @@
             <c:forEach var="book" items="${book}">
                 <tr>
                     <td><img src="${book.getImage()}"></td>
+                    <td><img src="${book.getImage2()}"></td>
+                    <td><img src="${book.getImage3()}"></td>
                     <td><c:out value=" ${book.getIsbn()} " /></td>
                     <td><c:out value=" ${book.getTitle()} " /></td>
                     <td><c:out value=" ${book.getAuthors()} " /></td>
