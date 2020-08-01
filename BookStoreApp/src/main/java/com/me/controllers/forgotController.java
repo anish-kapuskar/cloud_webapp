@@ -28,7 +28,7 @@ public class forgotController extends AbstractController {
 
         String email =request.getParameter("email");
 
-        this.snsUtil.publishSNSMessage(email);
+        this.snsUtil.publishSNSMessage("{ \"email\":\""+email+"\"}");
 
              mv= new ModelAndView("Welcome");
 

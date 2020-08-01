@@ -24,6 +24,8 @@
             Price<input type="text" name="price" value="${message.getPrice()}"><br><br>
             Seller<input type="text" name="seller" value="${message.getSeller()}"><br><br>
             Image<input type="file" name="image"><br><br>
+            <input type="file" name="image2"><br><br>
+            <input type="file" name="image3"><br><br>
             <input type="hidden" name="time" id ='time' value="">
             <script>
                 var t = new Date();

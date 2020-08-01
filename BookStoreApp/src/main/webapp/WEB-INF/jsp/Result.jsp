@@ -32,6 +32,8 @@
             <table border="1">
                 <tr>
                     <th>Book Cover</th>
+                    <th></th>
+                    <th></th>
                 <th>ISBN </th>
                 <th>Title </th>
                 <th>Authors </th>
@@ -50,6 +52,18 @@
                                     <input type="hidden" name="imagename" value="${book.getImagename()}">
                                     <input type="hidden" name="image" value="${book.getImage()}">
                                     Delete Image:<input type="submit" name="Delete Image"></form></td>
+                            <td><img src="${book.getImage2()}">
+                                <form method="POST" action="deleteimgcontroller.htm">
+
+                                    <input type="hidden" name="imagename2" value="${book.getImagename2()}">
+                                    <input type="hidden" name="image2" value="${book.getImage2()}">
+                                    Delete Image:<input type="submit" name="Delete Image"></form></td>
+                            <td><img src="${book.getImage3()}">
+                                <form method="POST" action="deleteimgcontroller.htm">
+
+                                    <input type="hidden" name="imagename3" value="${book.getImagename3()}">
+                                    <input type="hidden" name="image3" value="${book.getImage3()}">
+                                    Delete Image:<input type="submit" name="Delete Image"></form></td>
 
 
 
@@ -64,7 +78,7 @@
 
 
                         <td>
-                            <a href="delete.htm?option=delete&id=${book.getId()}&image=${book.getImagename()}">Delete Book</a> &nbsp; <a href="updateBook.htm?option=update&id=${book.getId()}&imagename=${book.getImagename()}&image=${book.getImage()}">Update Book</a>
+                            <a href="delete.htm?option=delete&id=${book.getId()}&image=${book.getImagename()}&image2=${book.getImagename2()}&image3=${book.getImagename3()}">Delete Book</a> &nbsp; <a href="updateBook.htm?option=update&id=${book.getId()}&imagename=${book.getImagename()}&image=${book.getImage()}&imagename2=${book.getImagename2()}&image2=${book.getImage2()}&imagename3=${book.getImagename3()}&image3=${book.getImage3()}">Update Book</a>
                         </td>
                         </tr>
                 </c:forEach> 

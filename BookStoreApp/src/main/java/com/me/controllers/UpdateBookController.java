@@ -53,6 +53,10 @@ public class UpdateBookController extends AbstractController {
         String option = request.getParameter("option");
         String imagename = request.getParameter("imagename");
         deleteFile(imagename);
+        String imagename2 = request.getParameter("imagename2");
+        deleteFile(imagename2);
+        String imagename3 = request.getParameter("imagename3");
+        deleteFile(imagename3);
         if(option ==null || option.isEmpty()) 
         {
             statsDclient.incrementCounter("viewUploads");
@@ -76,8 +80,10 @@ public class UpdateBookController extends AbstractController {
             String seller=request.getParameter("seller");
             String time =request.getParameter("time");
             String image = request.getParameter("image");
+            String image2 = request.getParameter("image2");
+            String image3 = request.getParameter("image3");
       
-      int result=bookdao.updateBook(id,isbn, title, authors, date, quantity, price, seller,time,image);
+      int result=bookdao.updateBook(id,isbn, title, authors, date, quantity, price, seller,time,image,image2,image3);
       
       if(result==1){
       String msg= "Book with id" + id + "has been updated successfully";

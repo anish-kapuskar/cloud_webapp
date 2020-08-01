@@ -184,12 +184,14 @@ public List<Book> searchBookbyAll(String keyword){
          return null;
     }
         
-        public int updateBook(int id, String isbn, String title, String authors, String date, int quantity, double price, String seller,String time, String image)
+        public int updateBook(int id, String isbn, String title, String authors, String date, int quantity, double price, String seller,String time, String image, String image2, String image3)
         {
         int result =0;
         try{
 
             String fileUrl = "https://s3.amazonaws.com" + "/" + "webapp.anish.kapuskar" + "/" + image;
+            String fileUrl2 = "https://s3.amazonaws.com" + "/" + "webapp.anish.kapuskar" + "/" + image2;
+            String fileUrl3 = "https://s3.amazonaws.com" + "/" + "webapp.anish.kapuskar" + "/" + image3;
 
             getSession().beginTransaction();
             Query q = getSession().createQuery("from Book where id= :id");
@@ -204,6 +206,8 @@ public List<Book> searchBookbyAll(String keyword){
             bookUpdate.setSeller(seller);
             bookUpdate.setTime(time);
             bookUpdate.setImage(fileUrl);
+            bookUpdate.setImage(fileUrl2);
+            bookUpdate.setImage(fileUrl3);
 
               
                getSession().save(bookUpdate);

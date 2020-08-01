@@ -13,4 +13,5 @@ Build the application using maven.
 To deploy the application, configure the tomcat server, and start the server.
 Deploy the application on the tomcat localhost:8080, with the appropriate path.
 
-Review change
+CLI Command to Import SSL Certificate into AWS Certificate Manager:
+aws acm import-certificate --certificate file://prod_anishkapuskar_me.crt --private-key file://server.private.pem

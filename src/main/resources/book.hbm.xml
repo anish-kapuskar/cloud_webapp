@@ -75,6 +75,18 @@ Contributor(s):
         <property name="imagename" type="java.lang.String">
             <column name="imagename"/>
         </property>
+        <property name="image2" type="java.lang.String">
+            <column name="image2"/>
+        </property>
+        <property name="imagename2" type="java.lang.String">
+            <column name="imagename2"/>
+        </property>
+        <property name="image3" type="java.lang.String">
+            <column name="image3"/>
+        </property>
+        <property name="imagename3" type="java.lang.String">
+            <column name="imagename3"/>
+        </property>
     </class>
 
 
