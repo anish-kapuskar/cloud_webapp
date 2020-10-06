@@ -13,11 +13,11 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 @Configuration
 public class AmazonClient {
 
-    @Value("AKIAYJBV54WGJAVEDS7Z")
+    @Value("")
     private String accessKey;
-    @Value("PHm0llYUPa1RmY+REqUNvxkkBKMsz0tuzNVF+999")
+    @Value("")
     private String secretKey;
-    @Value("us-east-1")
+    @Value("")
     private String region;
 
     @Bean
