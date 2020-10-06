@@ -15,16 +15,16 @@ import javax.annotation.PostConstruct;
 @Component
 public class SNSUtil {
 
-    @Value("arn:aws:sns:us-east-1:569196275084:password_reset")
+    @Value("")
     private String snsTopicARN;
 
-    @Value("AKIAYJBV54WGJAVEDS7Z")
+    @Value("")
     private String awsAccessKey;
 
-    @Value("PHm0llYUPa1RmY+REqUNvxkkBKMsz0tuzNVF+999")
+    @Value("")
     private String awsSecretKey;
 
-    @Value("us-east-1")
+    @Value("")
     private String awsRegion;
 
     private AmazonSNS amazonSNS;
