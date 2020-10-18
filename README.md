@@ -13,6 +13,8 @@ JDK,Maven,Apache Tomcat 9.0.35 and MySQL database is required to run this web ap
 
 Build and Deploy instructions for web application:
 Build the application using maven: mvn clean install
+
+
 To deploy the application, configure the tomcat server
 Deploy the application on port 8080
 
