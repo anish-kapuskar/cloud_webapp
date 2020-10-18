@@ -12,9 +12,9 @@ Apache Tomcat Server is used to run the application.
 JDK,Maven,Apache Tomcat 9.0.35 and MySQL database is required to run this web app.
 
 Build and Deploy instructions for web application:
-Build the application using maven.
-To deploy the application, configure the tomcat server, and start the server.
-Deploy the application on the tomcat localhost:8080, with the appropriate path.
+Build the application using maven: mvn clean install
+To deploy the application, configure the tomcat server
+Deploy the application on port 8080
 
 CLI Command to Import SSL Certificate into AWS Certificate Manager:
 aws acm import-certificate --certificate file://prod_anishkapuskar_me.crt --private-key file://server.private.pem
