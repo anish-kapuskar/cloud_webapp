@@ -1,6 +1,7 @@
 # webapp
 Cloud computing Summer 2020 
-Cloud native web-app hosted on AWS
+
+**Cloud native web-app hosted on AWS**
 
 Services used : EC2, RDS,Lambda, VPC, SNS, SES, CodeDeploy, Route53, Cloudwatch
 
