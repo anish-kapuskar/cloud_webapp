@@ -1,6 +1,8 @@
 # webapp
 Cloud computing Summer 2020 
+Cloud native web-app hosted on AWS
 
+Services used : EC2, RDS,Lambda, VPC, SNS, SES, CodeDeploy, Route53, Cloudwatch
 
 Prerequisites for building and deploying your application locally :
 The web application is built using Maven, and is based on Java, Spring MVC and Hibernate.
