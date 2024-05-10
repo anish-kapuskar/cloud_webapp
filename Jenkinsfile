@@ -8,6 +8,7 @@ pipeline {
                 git 'https://github.com/anish-kapuskar/cloud_webapp.git'
 
                 // Run Maven on a Unix agent.
+                cd BookStoreApp
                 sh "mvn clean install"
 
                 // To run Maven on a Windows agent, use
