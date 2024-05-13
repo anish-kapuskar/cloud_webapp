@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                bat 'copy /Y "target\\BookStoreApp-1.0-SNAPSHOT.war" "C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps"'
+                bat 'copy /Y "BookStoreApp\\target\\BookStoreApp-1.0-SNAPSHOT.war" "C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps"'
             }
         }
     }
