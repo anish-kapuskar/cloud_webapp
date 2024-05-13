@@ -1,26 +1,17 @@
+
+
 pipeline {
     agent any
-
     stages {
         stage('Build') {
             steps {
-                // Get some code from a GitHub repository
                 git 'https://github.com/anish-kapuskar/cloud_webapp.git'
-
-                // Run Maven on a Unix agent.
-                bat "cd BookStoreApp && dir && mvn clean install"
-
-                // To run Maven on a Windows agent, use
-                // bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                bat 'cd BookStoreApp && dir && mvn clean install'
             }
-
-            post {
-                // If Maven was able to run the tests, even if some of the test
-                // failed, record the test results and archive the jar file.
-                success {
-                    junit '**/target/surefire-reports/TEST-*.xml'
-                    archiveArtifacts 'target/*.jar'
-                }
+        }
+        stage('Deploy') {
+            steps {
+                bat 'copy /Y "target\\BookStoreApp-1.0-SNAPSHOT.war" "C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps"'
             }
         }
     }
